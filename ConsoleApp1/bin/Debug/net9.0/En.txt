@@ -1,0 +1,10 @@
+[BLOCK 1]
+Greetings traveler, how can I help you today?
+a - Start game
+b - Settings
+c - Achievements
+d - Quit game
+[END 1]
+
+[BLOCK 2]
+[END 2]
