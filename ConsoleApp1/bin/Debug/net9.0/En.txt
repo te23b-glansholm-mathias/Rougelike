@@ -10,12 +10,45 @@ The quick brown fox jumps over the lazy dog
  d - Quit game
 [END]
 
+[BLOCK tutorial_0]
+hello
+[END]
+
+[BLOCK tutorial_0r2]
+press enter to advance the text
+[END]
+
+[BLOCK tutorial_1]
+please resize the window to your liking
+[END]
+
+[BLOCK tutorial_1r2]
+press ctrl and '+' to scale up
+[END]
+
+[BLOCK tutorial_1r3]
+or ctrl and '-' to scale down
+[END]
+
+[BLOCK tutorial_2]
+This is how the game looks when you are in a battle
+[END]
+
+[BLOCK tutorial_3]
+Let's try fighting something
+[END]
+
+[BLOCK fightStart]
+{enemyName} attacks you
+[END]
+
+
 [BLOCK battleBase_1]
-  「Warrior {1}  Level 1  HP (20 / 20)  FP (0 / 0)
+  「Warrior {playerName}   Level {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
 
 
 
-        [ {2} ]
+        [ {1} ]
 
 
 
@@ -24,10 +57,25 @@ The quick brown fox jumps over the lazy dog
 [END]
 
 [BLOCK battleBase_2]
-  「Warrior {1}  Level 1  HP (20 / 20)  FP (0 / 0)
+  「Warrior {playerName}   Level {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
 
 
 
+        [ {1} ]
+        [ {2} ]
+
+
+
+
+                                                            」
+[END]
+
+[BLOCK battleBase_3]
+  「Warrior {playerName}   Level {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+
+
+
+        [ {1} ]
         [ {2} ]
         [ {3} ]
 
@@ -37,28 +85,16 @@ The quick brown fox jumps over the lazy dog
                                                             」
 [END]
 
-[BLOCK tutorial_0]
-hello
+[BLOCK enemyBattleBase_1]
+  「Warrior {playerName}   Level {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+    Enemy {enemyName}   Level {enemyLevel}  HP ({enemyHP})  FP ({enemyFP} / {enemyMaxFP})
+
+
+
+        [ {1} ]
+
+
+
+
+                                                            」
 [END]
-
-[BLOCK tutorial_0.2]
-press enter to advance the text
-[END]
-
-
-
-[BLOCK resize]
-        [ please resize the window to your liking ]
-        [ press ctrl and '+' to scale up ]
-        [ or ctrl and '-' to scale down ]
-[END]
-
-[BLOCK tutorial_1]
-  [ This is how the game looks when you are in a fight ]
-[END]
-
-[BLOCK tutorial_2]
-  [ Let's try fighting something ]
-[END]
-
-

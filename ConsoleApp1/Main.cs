@@ -4,6 +4,8 @@ class Core
 {
     public static string? languageKey = "En";
     public static string? playerName;
+    public static Character? Player;
+    public static Enemy? ActiveEnemy;
 
     [STAThread]
     static void Main(string[] args)
@@ -39,6 +41,8 @@ class Core
         Console.WriteLine("What is your name?");
         playerName = Console.ReadLine();
         Console.Clear();
+
+        Player = CreateNewPlayer();
 
         ShowMenu();
     }
@@ -83,13 +87,26 @@ class Core
         }
     }
 
+    static Character CreateNewPlayer()
+    {
+        return new Character
+        {
+            Level = 1,
+            HP = 100,
+            MaxHP = 120,
+            ATK = 25,
+            FP = 0,
+            MaxFP = 0
+        };
+    }
+
     static void ShowMenu()
     {
         bool show = true;
 
         while (show)
         {
-            TextHandler.WriteText("intro_0", playerName);
+            TextHandler.WriteText("intro_0", playerName!);
 
             ConsoleKeyInfo keyInfo = Console.ReadKey();
 
@@ -156,37 +173,33 @@ class Core
 
     static void StartTutorial()
     {
-        Console.Clear();
-        TextHandler.WriteText("battleBase_0", playerName, TextHandler.GetBlockText("test"));
-        Console.ReadLine();
+        WriteReadAndClear("battleBase_2", TextHandler.GetBlockText("tutorial_0"), TextHandler.GetBlockText("tutorial_0r2"));
+        WriteReadAndClear("battleBase_3", TextHandler.GetBlockText("tutorial_1"), TextHandler.GetBlockText("tutorial_1r2"), TextHandler.GetBlockText("tutorial_1r3"));
+        WriteReadAndClear("battleBase_1", TextHandler.GetBlockText("tutorial_2"));
+        WriteReadAndClear("battleBase_1", TextHandler.GetBlockText("tutorial_3"));
 
+        TutorialBattle();
+    }
 
-
+    static void WriteReadAndClear(params string[] texts)
+    {
         Console.Clear();
-        TextHandler.WriteText("tutorial_0", playerName);
+        TextHandler.WriteText(texts[0], texts[1..]);
         Console.ReadLine();
-        Console.Clear();
-        TextHandler.WriteText("resize", playerName);
-        Console.ReadLine();
-        Console.Clear();
-        TextHandler.WriteText("tutorial_1", playerName);
-        Console.ReadLine();
-        Console.Clear();
-        TextHandler.WriteText("tutorial_2", playerName);
-        Console.ReadLine();
-
-
     }
 
     static void TutorialBattle()
     {
-        Enemy Frog = new()
+        Common Frog = new()
         {
             name = "Frog",
-            hp = 80,
-            ATK = 6
+            HP = 80,
+            ATK = 6,
+            LVL = 1
         };
 
+        ActiveEnemy = Frog;
 
+        WriteReadAndClear("enemyBattleBase_1", TextHandler.GetBlockText("fightStart"));
     }
 }

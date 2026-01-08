@@ -6,9 +6,8 @@ class TextHandler
 
     public static void ReadFile(string lk)
     {
-        string allText = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, lk + ".txt"));
         string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, lk + ".txt");
-
+        string allText = File.ReadAllText(path);
         AddToDict(allText);
     }
 
@@ -53,7 +52,7 @@ class TextHandler
             textBeetwen = textBeetwen.Replace("{" + (i + 1) + "}", args[i]);
         }
 
-        Console.WriteLine(textBeetwen);
+        Console.WriteLine(GetFinalText(textBeetwen));
     }
 
     public static string GetBlockText(string key, params string[] args)
@@ -68,6 +67,27 @@ class TextHandler
             textBeetwen = textBeetwen.Replace("{" + (i + 1) + "}", args[i]);
         }
 
-        return textBeetwen;
+        return GetFinalText(textBeetwen);
+    }
+
+    static string GetFinalText(string text)
+    {
+        text = text.Replace("{playerName}", Core.playerName);
+        text = text.Replace("{playerLevel}", Core.Player!.Level.ToString());
+        text = text.Replace("{playerHP}", Core.Player.HP.ToString());
+        text = text.Replace("{playerMaxHP}", Core.Player.MaxHP.ToString());
+        text = text.Replace("{playerFP}", Core.Player.FP.ToString());
+        text = text.Replace("{playerMaxFP}", Core.Player.MaxFP.ToString());
+        if (Core.ActiveEnemy != null)
+        {
+            text = text.Replace("{enemyName}", Core.ActiveEnemy!.name.ToString());
+            text = text.Replace("{enemyHP}", Core.ActiveEnemy!.HP.ToString());
+            text = text.Replace("{enemyMaxHP}", Core.ActiveEnemy!.maxHP.ToString());
+            text = text.Replace("{enemyFP}", Core.ActiveEnemy!.FP.ToString());
+            text = text.Replace("{enemyMaxFP}", Core.ActiveEnemy!.maxFP.ToString());
+            text = text.Replace("{enemyLevel}", Core.ActiveEnemy!.LVL.ToString());
+
+        }
+        return text;
     }
 }
