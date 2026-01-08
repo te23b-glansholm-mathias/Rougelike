@@ -12,3 +12,4 @@ c:\Users\mathias.glansholm\Documents\Prog 2\Rougelike\ConsoleApp1\obj\Debug\net9
 c:\Users\mathias.glansholm\Documents\Prog 2\Rougelike\ConsoleApp1\obj\Debug\net9.0\ConsoleApp1.pdb
 c:\Users\mathias.glansholm\Documents\Prog 2\Rougelike\ConsoleApp1\obj\Debug\net9.0\ConsoleApp1.genruntimeconfig.cache
 c:\Users\mathias.glansholm\Documents\Prog 2\Rougelike\ConsoleApp1\obj\Debug\net9.0\ref\ConsoleApp1.dll
+c:\Users\mathias.glansholm\Documents\Prog 2\Rougelike\ConsoleApp1\obj\Debug\net9.0\ConsoleApp1.sourcelink.json

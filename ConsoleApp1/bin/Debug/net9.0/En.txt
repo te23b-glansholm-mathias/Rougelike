@@ -1,10 +1,64 @@
-[BLOCK 1]
-Greetings traveler, how can I help you today?
-a - Start game
-b - Settings
-c - Achievements
-d - Quit game
-[END 1]
+[BLOCK test]
+The quick brown fox jumps over the lazy dog
+[END]
 
-[BLOCK 2]
-[END 2]
+[BLOCK intro_0]
+ Greetings {1}, how can I help you today?
+ a - Start game
+ b - Settings 
+ c - Achievements
+ d - Quit game
+[END]
+
+[BLOCK battleBase_1]
+  「Warrior {1}  Level 1  HP (20 / 20)  FP (0 / 0)
+
+
+
+        [ {2} ]
+
+
+
+
+                                                            」
+[END]
+
+[BLOCK battleBase_2]
+  「Warrior {1}  Level 1  HP (20 / 20)  FP (0 / 0)
+
+
+
+        [ {2} ]
+        [ {3} ]
+
+
+
+
+                                                            」
+[END]
+
+[BLOCK tutorial_0]
+hello
+[END]
+
+[BLOCK tutorial_0.2]
+press enter to advance the text
+[END]
+
+
+
+[BLOCK resize]
+        [ please resize the window to your liking ]
+        [ press ctrl and '+' to scale up ]
+        [ or ctrl and '-' to scale down ]
+[END]
+
+[BLOCK tutorial_1]
+  [ This is how the game looks when you are in a fight ]
+[END]
+
+[BLOCK tutorial_2]
+  [ Let's try fighting something ]
+[END]
+
+

@@ -1,10 +1,11 @@
 ﻿using System.Diagnostics;
-using System.Reflection.Metadata;
 
 class Core
 {
-    public static string? languageKey;
+    public static string? languageKey = "En";
+    public static string? playerName;
 
+    [STAThread]
     static void Main(string[] args)
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -26,80 +27,122 @@ class Core
             Console.Title = "Main";
             Start();
         }
-    } 
-
-    static void Start()
-    {
-        string? name;
-        bool startMenu = true;
-
-        Console.WriteLine("Choose language");
-        ChooseLanguage();
-        Console.Clear();
-
-        Console.WriteLine("What is your name");
-        name = Console.ReadLine();
-        Console.Clear();
-
-        while (startMenu == true) ShowMenu();
 
         Console.ReadLine();
     }
 
+    static void Start()
+    {
+        ChooseLanguage();
+        Console.Clear();
+
+        Console.WriteLine("What is your name?");
+        playerName = Console.ReadLine();
+        Console.Clear();
+
+        ShowMenu();
+    }
+
     static void ChooseLanguage()
     {
-        Console.WriteLine(
-        """
-        Choose language
-        a - English
-        b - 日本語
-        c - Brainrot
-        """);
+        Console.WriteLine("Choose language");
 
-        ConsoleKeyInfo keyInfo = Console.ReadKey();
-
-        switch (keyInfo.Key)
+        while (true)
         {
-            case ConsoleKey.A:
-                languageKey = "En";
-                break;
+            Console.WriteLine(
+            """
+            a - English
+            b - 日本語
+            c - Brainrot
+            """);
 
-            case ConsoleKey.B:
-                languageKey = "Jp";
-                break;
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
 
-            case ConsoleKey.C:
-                languageKey = "Br";
-                break;
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.A:
+                    languageKey = "En";
+                    break;
+
+                case ConsoleKey.B:
+                    languageKey = "Jp";
+                    break;
+
+                case ConsoleKey.C:
+                    languageKey = "Br";
+                    break;
+
+                default:
+                    Console.Clear();
+                    Console.WriteLine("Please choose a valid language");
+                    continue;
+            }
+
+            TextHandler.ReadFile(languageKey);
+            break;
         }
     }
 
     static void ShowMenu()
     {
-        TextHandler.WriteText(1, languageKey);
+        bool show = true;
 
-        ConsoleKeyInfo keyInfo = Console.ReadKey();
-
-        switch (keyInfo.Key)
+        while (show)
         {
-            case ConsoleKey.A:
+            TextHandler.WriteText("intro_0", playerName);
 
-                break;
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
 
-            case ConsoleKey.B:
-                NewWindow("settings");
-                break;
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.A:
+                    show = false;
+                    TutorialRequest();
+                    break;
 
-            case ConsoleKey.C:
-                NewWindow("achievements");
-                break;
+                case ConsoleKey.B:
+                    NewWindow("settings");
+                    break;
 
-            case ConsoleKey.D:
-                Environment.Exit(0);
-                break;
+                case ConsoleKey.C:
+                    NewWindow("achievements");
+                    break;
+
+                case ConsoleKey.D:
+                    Environment.Exit(0);
+                    break;
+            }
+
+            if (show) Console.Clear();
+        }
+    }
+
+    static void TutorialRequest()
+    {
+        Console.Clear();
+        Console.WriteLine("Do you want to play the tutorial? [Y/N] ");
+
+        while (true)
+        {
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.Y:
+                    StartTutorial();
+                    break;
+
+                case ConsoleKey.N:
+                    break;
+
+                default:
+                    Console.Clear();
+                    Console.WriteLine("Please choose a valid input if you wanna play the tutorial [Y/N]. The Y or N key");
+                    continue;
+            }
+            break;
         }
 
-        Console.Clear();    
     }
 
     static void NewWindow(string args)
@@ -109,5 +152,41 @@ class Core
             FileName = "cmd.exe",
             Arguments = $"/c start \"\" \"{Environment.ProcessPath}\" {args}",
         });
+    }
+
+    static void StartTutorial()
+    {
+        Console.Clear();
+        TextHandler.WriteText("battleBase_0", playerName, TextHandler.GetBlockText("test"));
+        Console.ReadLine();
+
+
+
+        Console.Clear();
+        TextHandler.WriteText("tutorial_0", playerName);
+        Console.ReadLine();
+        Console.Clear();
+        TextHandler.WriteText("resize", playerName);
+        Console.ReadLine();
+        Console.Clear();
+        TextHandler.WriteText("tutorial_1", playerName);
+        Console.ReadLine();
+        Console.Clear();
+        TextHandler.WriteText("tutorial_2", playerName);
+        Console.ReadLine();
+
+
+    }
+
+    static void TutorialBattle()
+    {
+        Enemy Frog = new()
+        {
+            name = "Frog",
+            hp = 80,
+            ATK = 6
+        };
+
+
     }
 }
