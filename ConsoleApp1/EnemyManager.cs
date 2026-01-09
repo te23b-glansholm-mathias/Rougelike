@@ -1,19 +1,66 @@
-public class Enemy
+public abstract class Enemy
 {
     public string name = "";
-    public float HP; //base
-    public float maxHP; //base
-    public float FP = 0; //base
-    public float maxFP = 0; //base
-    public float ATK; //base
+    public float HP;
+    public float MaxHP;
+    public float FP = 0;
+    public float MaxFP = 0;
+    public float ATK;
     public float LVL = 1;
+
+    protected List<Attack> attacksOwned = new();
+
+    public void DoRandomAttack()
+    {
+        if (attacksOwned.Count == 0) return;
+        Random rnd = new();
+        int index = rnd.Next(attacksOwned.Count);
+        attacksOwned[index].Execute();
+    }
+}
+
+public class Attack
+{
+    private Action action;
+    public string Name { get; }
+
+    public Attack(string name, Action action)
+    {
+        Name = name;
+        this.action = action;
+    }
+
+    public void Execute()
+    {
+        action();
+    }
 }
 
 public class Common : Enemy
 {
+    public Common(string enemyName)
+    {
+        name = enemyName;
+
+        if (name == "Frog")
+        {
+            HP = 80;
+            ATK = 6;
+
+            attacksOwned.Add(new Attack("Slash", Slash));
+            attacksOwned.Add(new Attack("Stomp", Stomp));
+        }
+    }
+
     public void Slash()
     {
-        Core.Player!.TakeDamage(ATK);
+        Console.WriteLine($"{name} uses Slash!");
+        Core.Player!.TakeDamage(10);
+    }
+
+    public void Stomp()
+    {
+        Console.WriteLine($"{name} uses Stomp!");
+        Core.Player!.TakeDamage(16);
     }
 }
-

@@ -40,15 +40,13 @@ class TutorialManager
 
     static void TutorialBattle()
     {
-        Common Frog = new()
-        {
-            name = "Frog",
-            HP = 80,
-            ATK = 6,
-        };
+        Common Frog = new("Frog");
 
         Core.ActiveEnemy = Frog;
 
         Core.WriteReadAndClear("enemyBattleBase_1", TextHandler.GetBlockText("fightStart"));
+
+        Console.Clear();
+        Frog.DoRandomAttack();
     }
 }

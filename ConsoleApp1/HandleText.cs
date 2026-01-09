@@ -82,9 +82,9 @@ class TextHandler
         {
             text = text.Replace("{enemyName}", Core.ActiveEnemy!.name.ToString());
             text = text.Replace("{enemyHP}", Core.ActiveEnemy!.HP.ToString());
-            text = text.Replace("{enemyMaxHP}", Core.ActiveEnemy!.maxHP.ToString());
+            text = text.Replace("{enemyMaxHP}", Core.ActiveEnemy!.MaxHP.ToString());
             text = text.Replace("{enemyFP}", Core.ActiveEnemy!.FP.ToString());
-            text = text.Replace("{enemyMaxFP}", Core.ActiveEnemy!.maxFP.ToString());
+            text = text.Replace("{enemyMaxFP}", Core.ActiveEnemy!.MaxFP.ToString());
             text = text.Replace("{enemyLevel}", Core.ActiveEnemy!.LVL.ToString());
 
         }

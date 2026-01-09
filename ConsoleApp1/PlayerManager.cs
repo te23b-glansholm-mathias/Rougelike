@@ -1,3 +1,4 @@
+
 public class Character
 {
     public float Level;
