@@ -6,6 +6,10 @@ c - 実績 [N]
 d - ゲームを終了する [N]
 [END]
 
+[BLOCK intro_0]
+
+[END]
+
 [BLOCK 2]
 [END 1] 
 
