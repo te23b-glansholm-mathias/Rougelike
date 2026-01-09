@@ -5,6 +5,7 @@ class Core
     public static string? playerName;
     public static Character? Player;
     public static Enemy? ActiveEnemy;
+    public static string? ActiveAttack;
 
     [STAThread]
     static void Main(string[] args)
@@ -58,7 +59,7 @@ class Core
             MaxFP = 0
         };
     }
-    
+
     static public void NewWindow(string args)
     {
         Process.Start(new ProcessStartInfo

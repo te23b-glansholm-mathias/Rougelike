@@ -48,5 +48,7 @@ class TutorialManager
 
         Console.Clear();
         Frog.DoRandomAttack();
+        Core.WriteReadAndClear("enemyBattleBase_1", TextHandler.GetBlockText("attackReceive"));
+
     }
 }

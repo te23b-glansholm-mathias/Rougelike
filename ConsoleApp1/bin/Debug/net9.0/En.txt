@@ -42,6 +42,9 @@ Let's try fighting something
 {enemyName} attacks you
 [END]
 
+[BLOCK attackReceive]
+{enemyName} uses {activeAttack} for {} damage
+[END]
 
 [BLOCK battleBase_1]
   「Warrior {playerName}   Level {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})

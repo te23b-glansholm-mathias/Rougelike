@@ -54,13 +54,13 @@ public class Common : Enemy
 
     public void Slash()
     {
-        Console.WriteLine($"{name} uses Slash!");
-        Core.Player!.TakeDamage(10);
+        Core.ActiveAttack = "Slash";
+        Core.Player!.TakeDamage(ATK);
     }
 
     public void Stomp()
     {
-        Console.WriteLine($"{name} uses Stomp!");
-        Core.Player!.TakeDamage(16);
+        Core.ActiveAttack = "Stomp";
+        Core.Player!.TakeDamage(ATK + 4);
     }
 }
