@@ -43,7 +43,7 @@ Let's try fighting something
 [END]
 
 [BLOCK attackReceive]
-{enemyName} uses {activeAttack} for {} damage
+{enemyName} uses {activeAttack} for {activeDamage} damage
 [END]
 
 [BLOCK battleBase_1]

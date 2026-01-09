@@ -87,6 +87,7 @@ class TextHandler
             text = text.Replace("{enemyMaxFP}", Core.ActiveEnemy!.MaxFP.ToString());
             text = text.Replace("{enemyLevel}", Core.ActiveEnemy!.LVL.ToString());
             text = text.Replace("{activeAttack}", Core.ActiveAttack);
+            text = text.Replace("{activeDamage}", Core.ActiveDamage.ToString());
 
         }
         return text;

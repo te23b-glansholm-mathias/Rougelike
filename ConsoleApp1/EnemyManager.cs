@@ -55,12 +55,14 @@ public class Common : Enemy
     public void Slash()
     {
         Core.ActiveAttack = "Slash";
-        Core.Player!.TakeDamage(ATK);
+        Core.ActiveDamage = ATK;
+        Core.Player!.TakeDamage(Core.ActiveDamage);
     }
 
     public void Stomp()
     {
         Core.ActiveAttack = "Stomp";
-        Core.Player!.TakeDamage(ATK + 4);
+        Core.ActiveDamage = ATK + 4;
+        Core.Player!.TakeDamage(Core.ActiveDamage);
     }
 }

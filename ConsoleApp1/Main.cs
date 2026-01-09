@@ -6,6 +6,7 @@ class Core
     public static Character? Player;
     public static Enemy? ActiveEnemy;
     public static string? ActiveAttack;
+    public static float ActiveDamage;
 
     [STAThread]
     static void Main(string[] args)
