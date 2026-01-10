@@ -70,22 +70,22 @@ class TextHandler
 
     static string GetFinalText(string text)
     {
-        text = text.Replace("{playerName}", Core.playerName);
-        text = text.Replace("{playerLevel}", Core.Player!.Level.ToString());
-        text = text.Replace("{playerHP}", Core.Player.HP.ToString());
-        text = text.Replace("{playerMaxHP}", Core.Player.MaxHP.ToString());
-        text = text.Replace("{playerFP}", Core.Player.FP.ToString());
-        text = text.Replace("{playerMaxFP}", Core.Player.MaxFP.ToString());
-        if (Core.ActiveEnemy != null)
+        text = text.Replace("{playerName}", GameHandler.PlayerName);
+        text = text.Replace("{playerLevel}", GameHandler.Player!.Level.ToString());
+        text = text.Replace("{playerHP}", GameHandler.Player.HP.ToString());
+        text = text.Replace("{playerMaxHP}", GameHandler.Player.MaxHP.ToString());
+        text = text.Replace("{playerFP}", GameHandler.Player.FP.ToString());
+        text = text.Replace("{playerMaxFP}", GameHandler.Player.MaxFP.ToString());
+        if (GameHandler.ActiveEnemy != null)
         {
-            text = text.Replace("{enemyName}", Core.ActiveEnemy!.name.ToString());
-            text = text.Replace("{enemyHP}", Core.ActiveEnemy!.HP.ToString());
-            text = text.Replace("{enemyMaxHP}", Core.ActiveEnemy!.MaxHP.ToString());
-            text = text.Replace("{enemyFP}", Core.ActiveEnemy!.FP.ToString());
-            text = text.Replace("{enemyMaxFP}", Core.ActiveEnemy!.MaxFP.ToString());
-            text = text.Replace("{enemyLevel}", Core.ActiveEnemy!.LVL.ToString());
-            text = text.Replace("{activeAttack}", Core.ActiveAttack);
-            text = text.Replace("{activeDamage}", Core.ActiveDamage.ToString());
+            text = text.Replace("{enemyName}", GameHandler.ActiveEnemy!.name.ToString());
+            text = text.Replace("{enemyHP}", GameHandler.ActiveEnemy!.HP.ToString());
+            text = text.Replace("{enemyMaxHP}", GameHandler.ActiveEnemy!.MaxHP.ToString());
+            text = text.Replace("{enemyFP}", GameHandler.ActiveEnemy!.FP.ToString());
+            text = text.Replace("{enemyMaxFP}", GameHandler.ActiveEnemy!.MaxFP.ToString());
+            text = text.Replace("{enemyLevel}", GameHandler.ActiveEnemy!.LVL.ToString());
+            text = text.Replace("{activeAttack}", GameHandler.ActiveAttack);
+            text = text.Replace("{activeDamage}", GameHandler.ActiveDamage.ToString());
 
         }
         return text;

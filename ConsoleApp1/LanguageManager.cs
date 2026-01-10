@@ -4,7 +4,7 @@ class LanguageManager
 
     public static void ChooseLanguage()
     {
-        Console.WriteLine("Choose language");
+        Console.WriteLine("Choose language / 言語を選択");
 
         while (true)
         {

@@ -1,12 +1,12 @@
 class MenuManager
 {
-    static public void ShowMenu(string playerName)
+    static public void ShowMenu()
     {
         bool show = true;
 
         while (show)
         {
-            TextHandler.WriteText("intro_0", playerName!);
+            TextHandler.WriteText("intro_0", GameHandler.PlayerName!);
 
             ConsoleKeyInfo keyInfo = Console.ReadKey();
 
@@ -18,11 +18,11 @@ class MenuManager
                     break;
 
                 case ConsoleKey.B:
-                    Core.NewWindow("settings");
+                    ConsoleManager.NewWindow("settings");
                     break;
 
                 case ConsoleKey.C:
-                    Core.NewWindow("achievements");
+                    ConsoleManager.NewWindow("achievements");
                     break;
 
                 case ConsoleKey.D:

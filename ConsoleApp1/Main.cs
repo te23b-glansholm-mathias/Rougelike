@@ -1,13 +1,25 @@
 ﻿using System.Diagnostics;
 
+class GameHandler
+{
+    public static Character? Player { get; private set; }
+    public static Enemy? ActiveEnemy { get; private set; }
+    public static string? PlayerName { get; private set; }
+    public static string? ActiveAttack { get; private set; }
+    public static float ActiveDamage { get; private set; }
+
+    public static void SetPlayer(Character who) => Player = who;
+    public static void SetActive(Enemy who) => ActiveEnemy = who;
+    public static void SetName(string name) => PlayerName = name;
+    public static void SetAttack(string attack, float damage)
+    {
+        ActiveAttack = attack;
+        ActiveDamage = damage;
+    }
+}
+
 class Core
 {
-    public static string? playerName;
-    public static Character? Player;
-    public static Enemy? ActiveEnemy;
-    public static string? ActiveAttack;
-    public static float ActiveDamage;
-
     static void Main(string[] argument)
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -37,16 +49,16 @@ class Core
     {
         LanguageManager.ChooseLanguage();
         Console.Clear();
-
         Console.WriteLine("What is your name?");
-        playerName = Console.ReadLine();
+        GameHandler.SetName(Console.ReadLine()!);
         Console.Clear();
-
-        Player = new("Warrior");
-
-        MenuManager.ShowMenu(playerName!);
+        GameHandler.SetPlayer(new("Warrior"));
+        MenuManager.ShowMenu();
     }
+}
 
+class ConsoleManager()
+{
     static public void NewWindow(string argument)
     {
         ProcessStartInfo info = new()
@@ -54,7 +66,7 @@ class Core
             FileName = "cmd.exe",
             Arguments = $""" /c start "" "{Environment.ProcessPath}" {argument} """,
         };
-        
+
         Process.Start(info);
     }
 

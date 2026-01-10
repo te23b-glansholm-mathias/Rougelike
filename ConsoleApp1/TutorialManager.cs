@@ -3,7 +3,7 @@ class TutorialManager
     static public void TutorialRequest()
     {
         Console.Clear();
-        Console.WriteLine("Do you want to play the tutorial? [Y/N] ");
+        Console.WriteLine("Do you want to play the tutorial? [Y/N]");
 
         while (true)
         {
@@ -30,10 +30,10 @@ class TutorialManager
 
     static public void StartTutorial()
     {
-        Core.WriteReadAndClear("battleBase_2", TextHandler.GetBlockText("tutorial_0"), TextHandler.GetBlockText("tutorial_0r2"));
-        Core.WriteReadAndClear("battleBase_3", TextHandler.GetBlockText("tutorial_1"), TextHandler.GetBlockText("tutorial_1r2"), TextHandler.GetBlockText("tutorial_1r3"));
-        Core.WriteReadAndClear("battleBase_1", TextHandler.GetBlockText("tutorial_2"));
-        Core.WriteReadAndClear("battleBase_1", TextHandler.GetBlockText("tutorial_3"));
+        ConsoleManager.WriteReadAndClear("battleBase_2", TextHandler.GetBlockText("tutorial_0"), TextHandler.GetBlockText("tutorial_0r2"));
+        ConsoleManager.WriteReadAndClear("battleBase_3", TextHandler.GetBlockText("tutorial_1"), TextHandler.GetBlockText("tutorial_1r2"), TextHandler.GetBlockText("tutorial_1r3"));
+        ConsoleManager.WriteReadAndClear("battleBase_1", TextHandler.GetBlockText("tutorial_2"));
+        ConsoleManager.WriteReadAndClear("battleBase_1", TextHandler.GetBlockText("tutorial_3"));
 
         TutorialBattle();
     }
@@ -42,15 +42,15 @@ class TutorialManager
     {
         Common Frog = new("Frog");
 
-        Core.ActiveEnemy = Frog;
+        GameHandler.SetActive(Frog);
 
-        Core.WriteReadAndClear("enemyBattleBase_1", TextHandler.GetBlockText("fightStart"));
+        ConsoleManager.WriteReadAndClear("enemyBattleBase_1", TextHandler.GetBlockText("fightStart"));
 
         while (true)
         {
             Console.Clear();
             Frog.DoRandomAttack();
-            Core.WriteReadAndClear("enemyBattleBase_1", TextHandler.GetBlockText("attackReceive"));
+            ConsoleManager.WriteReadAndClear("enemyBattleBase_1", TextHandler.GetBlockText("attackReceive"));
         }
     }
 }
