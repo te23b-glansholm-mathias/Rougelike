@@ -3,8 +3,8 @@ public class Character
     public float Level;
     public float HP;
     public float MaxHP;
-    public float Defense;
-    public float ATK;
+    protected float Defense;
+    protected float ATK;
     public float FP;
     public float MaxFP;
 

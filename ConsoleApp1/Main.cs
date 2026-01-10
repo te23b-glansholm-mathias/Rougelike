@@ -58,8 +58,6 @@ class Core
         Process.Start(info);
     }
 
-    
-
     static public void WriteReadAndClear(params string[] texts)
     {
         Console.Clear();
