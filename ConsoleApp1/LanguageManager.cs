@@ -1,6 +1,6 @@
 class LanguageManager
 {
-    public static string? languageKey = "En";
+    public static string languageKey = "En";
 
     public static void ChooseLanguage()
     {

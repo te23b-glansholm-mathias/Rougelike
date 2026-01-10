@@ -1,5 +1,3 @@
-using System.Net.NetworkInformation;
-
 class TextHandler
 {
     public static Dictionary<string, string> blocks = new Dictionary<string, string>();

@@ -8,14 +8,13 @@ class Core
     public static string? ActiveAttack;
     public static float ActiveDamage;
 
-    [STAThread]
-    static void Main(string[] args)
+    static void Main(string[] argument)
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-        if (args.Length > 0)
+        if (argument.Length > 0)
         {
-            switch (args[0])
+            switch (argument[0])
             {
                 case "achievements":
                     Achievements.Show();
@@ -43,32 +42,23 @@ class Core
         playerName = Console.ReadLine();
         Console.Clear();
 
-        Player = CreateNewPlayer();
+        Player = new("Warrior");
 
         MenuManager.ShowMenu(playerName!);
     }
 
-    static Character CreateNewPlayer()
+    static public void NewWindow(string argument)
     {
-        return new Character
-        {
-            Level = 1,
-            HP = 100,
-            MaxHP = 120,
-            ATK = 25,
-            FP = 0,
-            MaxFP = 0
-        };
-    }
-
-    static public void NewWindow(string args)
-    {
-        Process.Start(new ProcessStartInfo
+        ProcessStartInfo info = new()
         {
             FileName = "cmd.exe",
-            Arguments = $"/c start \"\" \"{Environment.ProcessPath}\" {args}",
-        });
+            Arguments = $""" /c start "" "{Environment.ProcessPath}" {argument} """,
+        };
+        
+        Process.Start(info);
     }
+
+    
 
     static public void WriteReadAndClear(params string[] texts)
     {
