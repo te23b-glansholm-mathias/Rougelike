@@ -1,9 +1,10 @@
-class LanguageManager
+static class LanguageManager
 {
-    public static string languageKey = "En";
-
     public static void ChooseLanguage()
     {
+        // Key for dictionary to find correct languagefile
+        string languageKey;
+
         Console.WriteLine("Choose language / 言語を選択");
 
         while (true)
@@ -15,7 +16,7 @@ class LanguageManager
             c - Brainrot
             """);
 
-            ConsoleKeyInfo keyInfo = Console.ReadKey();
+            ConsoleKeyInfo keyInfo = Console.ReadKey(); // sets keyinfo to respective key input
 
             switch (keyInfo.Key)
             {

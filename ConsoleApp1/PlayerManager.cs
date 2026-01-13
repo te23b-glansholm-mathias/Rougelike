@@ -7,6 +7,7 @@ public class Character
     public float MaxFP { get; private set; }
     protected float Defense { get; private set; }
     protected float ATK { get; private set; }
+    
 
     public float HP
     {

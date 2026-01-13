@@ -1,39 +1,50 @@
-class TextHandler
+static class TextHandler
 {
-    public static Dictionary<string, string> blocks = new Dictionary<string, string>();
+    // get blocks of text out of a key
+    static Dictionary<string, string> blocks = new();
 
     public static void ReadFile(string lk)
     {
+        // the path to the correct language file (depending on the languagekey)
         string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, lk + ".txt");
+
+        // sets allText to the files content
         string allText = File.ReadAllText(path);
-        AddToDict(allText);
+
+        BlocksToDict(allText);
     }
 
-    public static void AddToDict(string allText)
+    // adds the different blocks into the dictionary
+    public static void BlocksToDict(string allText)
     {
-        int pos = 0;
+        int pos = 0; // current search position
         string startText = "[BLOCK ";
         string endOfStartText = "]";
         string endText = "[END]";
 
-        int start, end, trueEnd;
+        int start, endOfStart, end; // used while searching
 
         while (true)
         {
+            // sets start to the index of the first block (after pos)
             start = allText.IndexOf(startText, pos);
             if (start == -1) break;
 
-            end = allText.IndexOf(endOfStartText, start);
+            // sets endOfStart to the index of the endText string (after start)
+            endOfStart = allText.IndexOf(endOfStartText, start);
+            if (endOfStart == -1) break;
+
+            // sets end to the index of the endText (after start)
+            end = allText.IndexOf(endText, start);
             if (end == -1) break;
 
-            trueEnd = allText.IndexOf(endText, start);
-            if (trueEnd == -1) break;
-
-            string key = allText.Substring(start + startText.Length, end - (start + startText.Length)).Trim();
-            string textBeetwen = allText.Substring(end + 1, trueEnd - (end + 1)).Trim();
+            // sets key to the 
+            string key = allText[(start + startText.Length)..endOfStart].Trim();
+            string textBeetwen = allText[(endOfStart + 1)..end].Trim();
 
             blocks.Add(key, textBeetwen);
-            pos = trueEnd + endText.Length;
+            pos = end + endText.Length;
+            
         }
     }
 

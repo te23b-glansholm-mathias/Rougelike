@@ -7,7 +7,7 @@ public abstract class Enemy
     public float MaxFP = 0;
     public float ATK;
     public float LVL = 1;
-    
+
     protected List<Attack> attacksOwned = new();
 
     public void DoRandomAttack()
