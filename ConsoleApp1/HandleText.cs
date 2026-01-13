@@ -1,5 +1,3 @@
-using Microsoft.VisualBasic;
-
 static class TextHandler
 {
     // get blocks of text out of a key
@@ -52,18 +50,7 @@ static class TextHandler
     }
 
     // writes the text associated with the key
-    public static void WriteText(string key, params string[] args) // the overload strings replaces the numbered variables in the block
-    {
-        Console.WriteLine(GetFinalText(getBlock(key, args)));
-    }
-
-    // gets the text of a specific block
-    public static string GetBlockText(string key, params string[] args)
-    {
-        return getBlock(key, args);
-    }
-
-    private static string getBlock(string key, params string[] args)
+    public static string GetText(string key, params string[] args) // the overload strings replaces the numbered variables in the block
     {
         if (!blocks.TryGetValue(key, out string? textBeetwen)) // if the block couldn't be found
         {
@@ -88,7 +75,7 @@ static class TextHandler
         text = text.Replace("{playerMaxFP}", GameHandler.Player.MaxFP.ToString());
         if (GameHandler.ActiveEnemy != null) // if the activeEnemy is defined
         {
-            text = text.Replace("{enemyName}", GameHandler.ActiveEnemy!.name.ToString());
+            text = text.Replace("{enemyName}", GameHandler.ActiveEnemy!.Name.ToString());
             text = text.Replace("{enemyHP}", GameHandler.ActiveEnemy!.HP.ToString());
             text = text.Replace("{enemyMaxHP}", GameHandler.ActiveEnemy!.MaxHP.ToString());
             text = text.Replace("{enemyFP}", GameHandler.ActiveEnemy!.FP.ToString());

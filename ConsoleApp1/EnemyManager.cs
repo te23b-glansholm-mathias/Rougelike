@@ -1,12 +1,12 @@
 public abstract class Enemy
 {
-    public string name = "";
-    public float HP;
-    public float MaxHP;
-    public float FP = 0;
-    public float MaxFP = 0;
-    public float ATK;
-    public float LVL = 1;
+    public string? Name { get; protected set; }
+    public float HP { get; protected set; } 
+    public float MaxHP { get; protected set; }
+    public float FP { get; protected set; }
+    public float MaxFP { get; protected set; }
+    public float ATK { get; protected set; }
+    public float LVL { get; protected set; }
 
     protected List<Attack> attacksOwned = new();
 
@@ -40,9 +40,9 @@ public class Common : Enemy
 {
     public Common(string enemyName)
     {
-        name = enemyName;
+        Name = enemyName;
 
-        if (name == "Frog")
+        if (Name == "Frog")
         {
             HP = 80;
             ATK = 6;

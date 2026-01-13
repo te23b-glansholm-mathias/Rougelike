@@ -6,7 +6,7 @@ class MenuManager
 
         while (show)
         {
-            TextHandler.WriteText("intro_0", GameHandler.PlayerName!);
+            Console.WriteLine(TextHandler.GetText("intro_0", GameHandler.PlayerName!));
 
             ConsoleKeyInfo keyInfo = Console.ReadKey();
 

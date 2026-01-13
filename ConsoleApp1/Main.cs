@@ -79,7 +79,7 @@ static class ConsoleManager
     static public void WriteReadAndClear(params string[] texts) // Clears the text, writes out the block(s), and await enter input
     {
         Console.Clear();
-        TextHandler.WriteText(texts[0], texts[1..]);    // first argument becomes key to acces block, second becomes input variable for that specific block
+        Console.WriteLine(TextHandler.GetText(texts[0], texts[1..])); // first argument becomes key to acces block, second becomes input variable for that specific block
         Console.ReadLine();
     }
 }

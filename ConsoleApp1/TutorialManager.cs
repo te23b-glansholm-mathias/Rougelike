@@ -30,10 +30,10 @@ class TutorialManager
 
     static public void StartTutorial()
     {
-        ConsoleManager.WriteReadAndClear("battleBase_2", TextHandler.GetBlockText("tutorial_0"), TextHandler.GetBlockText("tutorial_0r2"));
-        ConsoleManager.WriteReadAndClear("battleBase_3", TextHandler.GetBlockText("tutorial_1"), TextHandler.GetBlockText("tutorial_1r2"), TextHandler.GetBlockText("tutorial_1r3"));
-        ConsoleManager.WriteReadAndClear("battleBase_1", TextHandler.GetBlockText("tutorial_2"));
-        ConsoleManager.WriteReadAndClear("battleBase_1", TextHandler.GetBlockText("tutorial_3"));
+        ConsoleManager.WriteReadAndClear("battleBase_2", TextHandler.GetText("tutorial_0"), TextHandler.GetText("tutorial_0r2"));
+        ConsoleManager.WriteReadAndClear("battleBase_3", TextHandler.GetText("tutorial_1"), TextHandler.GetText("tutorial_1r2"), TextHandler.GetText("tutorial_1r3"));
+        ConsoleManager.WriteReadAndClear("battleBase_1", TextHandler.GetText("tutorial_2"));
+        ConsoleManager.WriteReadAndClear("battleBase_1", TextHandler.GetText("tutorial_3"));
 
         TutorialBattle();
     }
@@ -44,13 +44,13 @@ class TutorialManager
 
         GameHandler.SetActive(Frog);
 
-        ConsoleManager.WriteReadAndClear("enemyBattleBase_1", TextHandler.GetBlockText("fightStart"));
+        ConsoleManager.WriteReadAndClear("enemyBattleBase_1", TextHandler.GetText("fightStart"));
 
         while (true)
         {
             Console.Clear();
             Frog.DoRandomAttack();
-            ConsoleManager.WriteReadAndClear("enemyBattleBase_1", TextHandler.GetBlockText("attackReceive"));
+            ConsoleManager.WriteReadAndClear("enemyBattleBase_1", TextHandler.GetText("attackReceive"));
         }
     }
 }
