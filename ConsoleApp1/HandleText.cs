@@ -1,3 +1,5 @@
+using Microsoft.VisualBasic;
+
 static class TextHandler
 {
     // get blocks of text out of a key
@@ -26,60 +28,57 @@ static class TextHandler
 
         while (true)
         {
-            // sets start to the index of the first block (after pos)
+            // start becomes index of the first block (after pos)
             start = allText.IndexOf(startText, pos);
             if (start == -1) break;
 
-            // sets endOfStart to the index of the endText string (after start)
+            //  endOfStart becomes index of the endText string (after start)
             endOfStart = allText.IndexOf(endOfStartText, start);
             if (endOfStart == -1) break;
 
-            // sets end to the index of the endText (after start)
+            // end becomes index of the endText (after start)
             end = allText.IndexOf(endText, start);
             if (end == -1) break;
 
-            // sets key to the 
+            // key becomes text beetwen startText and endOfStartText without whitespaces
             string key = allText[(start + startText.Length)..endOfStart].Trim();
+
+            // textBeetwen becomes the endOfStart and end index without whitespaces
             string textBeetwen = allText[(endOfStart + 1)..end].Trim();
 
             blocks.Add(key, textBeetwen);
-            pos = end + endText.Length;
-            
+            pos = end + endText.Length; // changes the position to the end of the last block
         }
     }
 
-    public static void WriteText(string key, params string[] args)
+    // writes the text associated with the key
+    public static void WriteText(string key, params string[] args) // the overload strings replaces the numbered variables in the block
     {
-        if (!blocks.TryGetValue(key, out string? textBeetwen))
-        {
-            Console.WriteLine($"Couldn't find block '{key}'");
-            return;
-        }
-
-        for (int i = 0; i < args.Length; i++)
-        {
-            textBeetwen = textBeetwen.Replace("{" + (i + 1) + "}", args[i]);
-        }
-
-        Console.WriteLine(GetFinalText(textBeetwen));
+        Console.WriteLine(GetFinalText(getBlock(key, args)));
     }
 
+    // gets the text of a specific block
     public static string GetBlockText(string key, params string[] args)
     {
-        if (!blocks.TryGetValue(key, out string? textBeetwen))
+        return getBlock(key, args);
+    }
+
+    private static string getBlock(string key, params string[] args)
+    {
+        if (!blocks.TryGetValue(key, out string? textBeetwen)) // if the block couldn't be found
         {
-            return " ERROR ";
+            throw new ArgumentException($"Couldn't find block '{key}'");
         }
 
-        for (int i = 0; i < args.Length; i++)
+        for (int i = 0; i < args.Length; i++) // for every argument
         {
-            textBeetwen = textBeetwen.Replace("{" + (i + 1) + "}", args[i]);
+            textBeetwen = textBeetwen.Replace("{" + (i + 1) + "}", args[i]);    //replaces the {i} with the argument
         }
 
         return GetFinalText(textBeetwen);
     }
 
-    static string GetFinalText(string text)
+    static string GetFinalText(string text) // replaces some variables
     {
         text = text.Replace("{playerName}", GameHandler.PlayerName);
         text = text.Replace("{playerLevel}", GameHandler.Player!.Level.ToString());
@@ -87,7 +86,7 @@ static class TextHandler
         text = text.Replace("{playerMaxHP}", GameHandler.Player.MaxHP.ToString());
         text = text.Replace("{playerFP}", GameHandler.Player.FP.ToString());
         text = text.Replace("{playerMaxFP}", GameHandler.Player.MaxFP.ToString());
-        if (GameHandler.ActiveEnemy != null)
+        if (GameHandler.ActiveEnemy != null) // if the activeEnemy is defined
         {
             text = text.Replace("{enemyName}", GameHandler.ActiveEnemy!.name.ToString());
             text = text.Replace("{enemyHP}", GameHandler.ActiveEnemy!.HP.ToString());
