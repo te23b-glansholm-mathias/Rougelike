@@ -18,6 +18,10 @@ class TutorialManager
                 case ConsoleKey.N:
                     break;
 
+                case ConsoleKey.Enter:
+                    StartTutorial();
+                    break;
+
                 default:
                     Console.Clear();
                     Console.WriteLine("Please choose a valid input if you wanna play the tutorial [Y/N]. The Y or N key");
@@ -49,7 +53,7 @@ class TutorialManager
         while (true)
         {
             Console.Clear();
-            Frog.DoRandomAttack();
+            Frog.DoAction();
             ConsoleManager.WriteReadAndClear("enemyBattleBase_1", TextHandler.GetText("attackReceive"));
         }
     }

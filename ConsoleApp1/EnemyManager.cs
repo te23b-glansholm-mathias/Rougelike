@@ -1,7 +1,7 @@
 public abstract class Enemy
 {
     public string? Name { get; protected set; }
-    public float HP { get; protected set; } 
+    public float HP { get; protected set; }
     public float MaxHP { get; protected set; }
     public float FP { get; protected set; }
     public float MaxFP { get; protected set; }
@@ -10,12 +10,9 @@ public abstract class Enemy
 
     protected List<Attack> attacksOwned = new();
 
-    public void DoRandomAttack()
+    public virtual void DoAction()
     {
-        if (attacksOwned.Count == 0) return;
-        Random rnd = new();
-        int index = rnd.Next(attacksOwned.Count);
-        attacksOwned[index].Execute();
+        attacksOwned[Random.Shared.Next(attacksOwned.Count)].Execute();
     }
 }
 

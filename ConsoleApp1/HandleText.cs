@@ -73,14 +73,18 @@ static class TextHandler
         text = text.Replace("{playerMaxHP}", GameHandler.Player.MaxHP.ToString());
         text = text.Replace("{playerFP}", GameHandler.Player.FP.ToString());
         text = text.Replace("{playerMaxFP}", GameHandler.Player.MaxFP.ToString());
-        if (GameHandler.ActiveEnemy != null) // if the activeEnemy is defined
+        if (GameHandler.ActiveEnemies != null) // if the activeEnemy is defined
         {
-            text = text.Replace("{enemyName}", GameHandler.ActiveEnemy!.Name.ToString());
-            text = text.Replace("{enemyHP}", GameHandler.ActiveEnemy!.HP.ToString());
-            text = text.Replace("{enemyMaxHP}", GameHandler.ActiveEnemy!.MaxHP.ToString());
-            text = text.Replace("{enemyFP}", GameHandler.ActiveEnemy!.FP.ToString());
-            text = text.Replace("{enemyMaxFP}", GameHandler.ActiveEnemy!.MaxFP.ToString());
-            text = text.Replace("{enemyLevel}", GameHandler.ActiveEnemy!.LVL.ToString());
+            for (int i = 0; i < GameHandler.ActiveEnemies.Count; i++)
+            {
+                text = text.Replace("{enemyName" + (i + 1) + "}", GameHandler.ActiveEnemies[i].Name?.ToString());
+                text = text.Replace("{enemyHP}", GameHandler.ActiveEnemies![i].HP.ToString());
+                text = text.Replace("{enemyMaxHP}", GameHandler.ActiveEnemies![i].MaxHP.ToString());
+                text = text.Replace("{enemyFP}", GameHandler.ActiveEnemies![i].FP.ToString());
+                text = text.Replace("{enemyMaxFP}", GameHandler.ActiveEnemies![i].MaxFP.ToString());
+                text = text.Replace("{enemyLevel}", GameHandler.ActiveEnemies![i].LVL.ToString());
+            }
+
             text = text.Replace("{activeAttack}", GameHandler.ActiveAttack);
             text = text.Replace("{activeDamage}", GameHandler.ActiveDamage.ToString());
 

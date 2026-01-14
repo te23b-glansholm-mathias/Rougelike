@@ -39,11 +39,11 @@ Let's try fighting something
 [END]
 
 [BLOCK fightStart]
-{enemyName} attacks you
+{enemyName1} attacks you
 [END]
 
 [BLOCK attackReceive]
-{enemyName} uses {activeAttack} for {activeDamage} damage
+{enemyName1} uses {activeAttack} for {activeDamage} damage
 [END]
 
 [BLOCK battleBase_1]
@@ -90,7 +90,7 @@ Let's try fighting something
 
 [BLOCK enemyBattleBase_1]
   「Warrior {playerName}   Level {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
-    Enemy {enemyName}   Level {enemyLevel}  HP ({enemyHP})  FP ({enemyFP} / {enemyMaxFP})
+    Enemy {enemyName1}   Level {enemyLevel}  HP ({enemyHP})  FP ({enemyFP} / {enemyMaxFP})
 
 
 

@@ -5,14 +5,15 @@ static class GameHandler
 {
     // should not be changed outside "GameHandler"
     public static Character? Player { get; private set; }
-    public static Enemy? ActiveEnemy { get; private set; }
+    // public static Enemy? ActiveEnemy { get; private set; }
+    public static List<Enemy>? ActiveEnemies { get; private set; } = new();
     public static string? PlayerName { get; private set; }
     public static string? ActiveAttack { get; private set; }
     public static float ActiveDamage { get; private set; }
 
     // sets variable depending on parameter
     public static void SetPlayer(Character who) => Player = who;
-    public static void SetActive(Enemy who) => ActiveEnemy = who;
+    public static void SetActive(Enemy who) => ActiveEnemies?.Add(who);
     public static void SetName(string name) => PlayerName = name;
     public static void SetAttack(string attack, float damage)
     {
@@ -49,7 +50,7 @@ static class Core
         Console.ReadLine();
     }
 
-    // starts the game
+    // starts the games
     static void Start()
     {
         LanguageManager.ChooseLanguage();

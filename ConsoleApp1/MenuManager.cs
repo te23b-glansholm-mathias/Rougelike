@@ -1,10 +1,11 @@
 class MenuManager
 {
+    //Shows the menu
     static public void ShowMenu()
     {
-        bool show = true;
+        bool show = true; 
 
-        while (show)
+        while (show) 
         {
             Console.WriteLine(TextHandler.GetText("intro_0", GameHandler.PlayerName!));
 
@@ -23,6 +24,10 @@ class MenuManager
 
                 case ConsoleKey.C:
                     ConsoleManager.NewWindow("achievements");
+                    break;
+
+                case ConsoleKey.Enter:
+                    TutorialManager.TutorialRequest();
                     break;
 
                 case ConsoleKey.D:

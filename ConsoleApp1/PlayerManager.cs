@@ -1,5 +1,7 @@
 public class Character
 {
+    protected bool IsDead { get; private set; }
+
     public float Level { get; private set; }
     private float _hp;
     public float MaxHP { get; private set; }
@@ -7,12 +9,15 @@ public class Character
     public float MaxFP { get; private set; }
     protected float Defense { get; private set; }
     protected float ATK { get; private set; }
-    
 
     public float HP
     {
         get => _hp;
-        private set => _hp = Math.Clamp(value, 0, MaxHP);
+        private set
+        {
+            if (value <= 0) GameOver();
+            _hp = Math.Clamp(value, 0, MaxHP);   //hp can never go lower than 0 or higher than maxHp
+        }
     }
 
     public Character(string which)
@@ -33,5 +38,12 @@ public class Character
     public void TakeDamage(float amount)
     {
         HP -= amount;
+    }
+
+    public static void GameOver()
+    {
+        Console.Clear();
+        Console.WriteLine("You died");
+        Console.ReadLine();
     }
 }

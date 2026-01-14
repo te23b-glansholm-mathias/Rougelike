@@ -32,6 +32,10 @@ static class LanguageManager
                     languageKey = "Br";
                     break;
 
+                case ConsoleKey.Enter:
+                    languageKey = "En";
+                    break;
+
                 default:
                     Console.Clear();
                     Console.WriteLine("Please choose a valid language");
