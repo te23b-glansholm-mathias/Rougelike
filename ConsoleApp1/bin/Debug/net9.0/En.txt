@@ -38,12 +38,20 @@ This is how the game looks when you are in a battle
 Let's try fighting something
 [END]
 
-[BLOCK fightStart]
+[BLOCK fightStart_1]
 {enemyName1} attacks you
 [END]
 
-[BLOCK attackReceive]
-{enemyName1} uses {activeAttack} for {activeDamage} damage
+[BLOCK fightStart_2]
+{enemyName1} & {enemyName2} attacks you
+[END]
+
+[BLOCK attackReceive_1]
+{enemyName1} uses {activeAttack1} {damageMessage1}
+[END]
+
+[BLOCK attackReceive_2]
+{enemyName1} uses {activeAttack1} {damageMessage1}and {enemyName2} uses {activeAttack2} {damageMessage2}
 [END]
 
 [BLOCK battleBase_1]
@@ -90,7 +98,22 @@ Let's try fighting something
 
 [BLOCK enemyBattleBase_1]
   「Warrior {playerName}   Level {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
-    Enemy {enemyName1}   Level {enemyLevel}  HP ({enemyHP})  FP ({enemyFP} / {enemyMaxFP})
+    Enemy {enemyName1}   Level {enemyLevel1}  HP ({enemyHP1})  FP ({enemyFP1} / {enemyMaxFP1})
+
+
+
+        [ {1} ]
+
+
+
+
+                                                            」
+[END]
+
+[BLOCK enemyBattleBase_2]
+  「Warrior {playerName}   Level {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+    Enemy {enemyName1}   Level {enemyLevel1}  HP ({enemyHP1})  FP ({enemyFP1} / {enemyMaxFP1})
+    Enemy {enemyName2}   Level {enemyLevel2}  HP ({enemyHP2})  FP ({enemyFP2} / {enemyMaxFP2})
 
 
 

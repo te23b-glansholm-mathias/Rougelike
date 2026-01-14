@@ -1,11 +1,128 @@
-[BLOCK intro_0]
-私の名前はアントンです
-a - ゲームを始める
-b - 設定
-c - 実績
-d - ゲームを終了する
+[BLOCK test]
+素早い茶色の狐が怠惰な犬の背を跳び越える
 [END]
 
-[BLOCK 2]
-[END 1] 
+[BLOCK intro_0]
+こんにちは {1} さん、本日はどのようなご用件でしょうか？
+ a - ゲームを開始
+ b - 設定
+ c - 実績
+ d - ゲームを終了
+[END]
 
+[BLOCK tutorial_0]
+こんにちは
+[END]
+
+[BLOCK tutorial_0r2]
+テキストを進めるにはEnterキーを押してください
+[END]
+
+[BLOCK tutorial_1]
+お好みのサイズにウィンドウを調整してください
+[END]
+
+[BLOCK tutorial_1r2]
+拡大するにはCtrlキーと『+』キーを同時に押してください
+[END]
+
+[BLOCK tutorial_1r3]
+縮小するにはCtrlキーと『 - 』キーを同時に押してください
+[END]
+
+[BLOCK tutorial_2]
+戦闘中のゲーム画面はこうなります
+[END]
+
+[BLOCK tutorial_3]
+何かと戦ってみましょう
+[END]
+
+[BLOCK fightStart_1]
+{enemyName1} が攻撃します
+[END]
+
+[BLOCK fightStart_2]
+{enemyName1} と {enemyName2} が攻撃します
+[END]
+
+[BLOCK attackReceive_1]
+{enemyName1} が {activeAttack1} を発動 {damageMessage1}
+[END]
+
+[BLOCK attackReceive_2]
+{enemyName1} が {activeAttack1} を発動 {damageMessage1} と {enemyName2} が {activeAttack2} を発動 {damageMessage2}
+[END]
+
+[BLOCK battleBase_1]
+  「戦士 {playerName}   レベル {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+
+
+
+        [ {1} ]                 
+
+
+
+
+                                                            」
+[END]
+
+[BLOCK battleBase_2]
+  「戦士 {playerName}   レベル {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+
+
+
+        [ {1} ]
+        [ {2} ]         
+
+
+
+
+                                                            」
+[END]
+
+[BLOCK battleBase_3]
+  「戦士 {playerName}   レベル {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+
+
+
+        [ {1} ]
+        [ {2} ]
+        [ {3} ]
+
+
+
+
+                                                            」
+[END]
+
+[BLOCK enemyBattleBase_1]
+  「戦士 {playerName}   レベル {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+    敵 {enemyName1}   レベル {enemyLevel1}  HP ({enemyHP1})  FP ({enemyFP1} / {enemyMaxFP1})
+
+
+
+        [ {1} ]
+
+
+
+
+                                                            」
+[END]
+
+[BLOCK enemyBattleBase_2]
+  「戦士 {playerName}   レベル {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+    敵 {enemyName1}   レベル {enemyLevel1}  HP ({enemyHP1})  FP ({enemyFP1} / {enemyMaxFP1})
+    敵 {enemyName2}   レベル {enemyLevel2}  HP ({enemyHP2})  FP ({enemyFP2} / {enemyMaxFP2})
+
+
+
+        [ {1} ]
+
+
+
+
+                                                            」
+[END]
+
+DeepL.com（無料版）で翻訳しました。

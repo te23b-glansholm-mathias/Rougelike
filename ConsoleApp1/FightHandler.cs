@@ -1,25 +1,41 @@
 class Fight
 {
-    public static void BeginBattle(string enemyName)
+    // starts a battle with 
+    public static void BeginBattle(params string[] enemyName)
     {
-        Common enemy = new(enemyName);
+        float totalHP = 0;
+        float ActiveEnemies = 0;
 
-        GameHandler.SetActive(enemy);
-
-        ConsoleManager.WriteReadAndClear("enemyBattleBase_1", TextHandler.GetText("fightStart"));
-
-        while (enemy.HP > 0)
+        for (int i = 0; i < enemyName.Length; i++) // creates every enemy
         {
-            Console.Clear();
-            enemy.DoAction();
-            ConsoleManager.WriteReadAndClear("enemyBattleBase_1", TextHandler.GetText("attackReceive"));
+            Common enemy = new(enemyName[i]);
+            totalHP += enemy.HP; // adds the new enemy hp to the total
+            GameHandler.SetActive(enemy);
         }
 
-        battleWon();
+        ActiveEnemies = GameHandler.ActiveEnemies!.Count;
+
+        // textblock changes depending on activeEnemies
+        ConsoleManager.WriteReadAndClear("enemyBattleBase_" + ActiveEnemies, TextHandler.GetText("fightStart_" + ActiveEnemies));
+
+        while (totalHP > 0) // while any of the enemies are still living
+        {
+            Console.Clear();
+
+            for (int i = 0; i < GameHandler.ActiveEnemies!.Count; i++) // all enemies take a turn
+            {
+                GameHandler.ActiveEnemies[i].TakeTurn(GameHandler.ActiveEnemies[i]);
+            }
+
+            ConsoleManager.WriteReadAndClear("enemyBattleBase_" + ActiveEnemies, TextHandler.GetText("attackReceive_" + ActiveEnemies));
+            GameHandler.ResetAttack(); // cleans up for next turn
+        }
+
+        BattleWon();
     }
 
-    static void battleWon()
+    static void BattleWon()
     {
-
+        throw new NotImplementedException();
     }
 }

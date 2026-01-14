@@ -8,17 +8,24 @@ static class GameHandler
     // public static Enemy? ActiveEnemy { get; private set; }
     public static List<Enemy>? ActiveEnemies { get; private set; } = new();
     public static string? PlayerName { get; private set; }
-    public static string? ActiveAttack { get; private set; }
-    public static float ActiveDamage { get; private set; }
+    public static List<string>? ActiveAttack { get; private set; } = new();
+    public static List<float> ActiveDamage { get; private set; } = new();
 
     // sets variable depending on parameter
     public static void SetPlayer(Character who) => Player = who;
-    public static void SetActive(Enemy who) => ActiveEnemies?.Add(who);
+
+    public static void SetActive(Enemy enemy) => ActiveEnemies?.Add(enemy);
     public static void SetName(string name) => PlayerName = name;
-    public static void SetAttack(string attack, float damage)
+    public static void SetAttack(string attack, float damage = 0)
     {
-        ActiveAttack = attack;
-        ActiveDamage = damage;
+        ActiveAttack!.Add(attack);
+        ActiveDamage!.Add(damage);
+    }
+
+    public static void ResetAttack()
+    {
+        ActiveAttack!.Clear();
+        ActiveDamage!.Clear();
     }
 }
 

@@ -75,19 +75,26 @@ static class TextHandler
         text = text.Replace("{playerMaxFP}", GameHandler.Player.MaxFP.ToString());
         if (GameHandler.ActiveEnemies != null) // if the activeEnemy is defined
         {
-            for (int i = 0; i < GameHandler.ActiveEnemies.Count; i++)
+            for (int i = 0; i < GameHandler.ActiveEnemies.Count; i++) // make sure every enemies block variables get replaced
             {
                 text = text.Replace("{enemyName" + (i + 1) + "}", GameHandler.ActiveEnemies[i].Name?.ToString());
-                text = text.Replace("{enemyHP}", GameHandler.ActiveEnemies![i].HP.ToString());
-                text = text.Replace("{enemyMaxHP}", GameHandler.ActiveEnemies![i].MaxHP.ToString());
-                text = text.Replace("{enemyFP}", GameHandler.ActiveEnemies![i].FP.ToString());
-                text = text.Replace("{enemyMaxFP}", GameHandler.ActiveEnemies![i].MaxFP.ToString());
-                text = text.Replace("{enemyLevel}", GameHandler.ActiveEnemies![i].LVL.ToString());
+                text = text.Replace("{enemyHP" + (i + 1) + "}", GameHandler.ActiveEnemies[i].HP.ToString());
+                text = text.Replace("{enemyMaxHP" + (i + 1) + "}", GameHandler.ActiveEnemies[i].MaxHP.ToString());
+                text = text.Replace("{enemyFP" + (i + 1) + "}", GameHandler.ActiveEnemies[i].FP.ToString());
+                text = text.Replace("{enemyMaxFP" + (i + 1) + "}", GameHandler.ActiveEnemies[i].MaxFP.ToString());
+                text = text.Replace("{enemyLevel" + (i + 1) + "}", GameHandler.ActiveEnemies[i].LVL.ToString());
             }
 
-            text = text.Replace("{activeAttack}", GameHandler.ActiveAttack);
-            text = text.Replace("{activeDamage}", GameHandler.ActiveDamage.ToString());
+            for (int i = 0; i < GameHandler.ActiveAttack!.Count; i++)
+            {
+                text = text.Replace("{activeAttack" + (i + 1) + "}", GameHandler.ActiveAttack[i]);
+            }
 
+            for (int i = 0; i < GameHandler.ActiveDamage.Count; i++)
+            {
+                if (GameHandler.ActiveDamage[i] > 0) text = text.Replace("{damageMessage" + (i + 1) + "}", $"for {GameHandler.ActiveDamage[i]} damage ");
+                else text = text.Replace("{damageMessage" + (i + 1) + "}", ""); // replaces the damagemessage block variable to nothing if the enemy did no damage
+            }
         }
         return text;
     }

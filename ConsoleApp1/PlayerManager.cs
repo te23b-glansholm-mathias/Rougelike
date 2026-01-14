@@ -1,3 +1,6 @@
+// this is setup in this way so I can add more character classes in the future
+using System.Reflection;
+
 public class Character
 {
     protected bool IsDead { get; private set; }
@@ -47,17 +50,14 @@ public class Character
         Console.WriteLine("Do you want to play again [Y/N]");
 
         ConsoleKeyInfo keyInfo = Console.ReadKey();
-        
+
         switch (keyInfo.Key)
         {
-                case ConsoleKey.Y:
-                    
-                    break;
-                case ConsoleKey.N:
-                    
-                    break;
+            case ConsoleKey.Y:
+                throw new NotImplementedException();
+            case ConsoleKey.N:
+                Environment.Exit(0);
+                break;
         }
-        
-        Console.ReadLine();
     }
 }

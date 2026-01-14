@@ -1,5 +1,6 @@
 class TutorialManager
 {
+    // asks if you wanna play the tutorial
     static public void TutorialRequest()
     {
         Console.Clear();
@@ -32,7 +33,7 @@ class TutorialManager
     }
 
 
-    static public void StartTutorial()
+    static public void StartTutorial() // writes out the text for the tutorial. Check respective language textfile
     {
         ConsoleManager.WriteReadAndClear("battleBase_2", TextHandler.GetText("tutorial_0"), TextHandler.GetText("tutorial_0r2"));
         ConsoleManager.WriteReadAndClear("battleBase_3", TextHandler.GetText("tutorial_1"), TextHandler.GetText("tutorial_1r2"), TextHandler.GetText("tutorial_1r3"));
@@ -40,6 +41,5 @@ class TutorialManager
         ConsoleManager.WriteReadAndClear("battleBase_1", TextHandler.GetText("tutorial_3"));
 
         Fight.BeginBattle("Frog");
-        // TutorialBattle();
     }
 }

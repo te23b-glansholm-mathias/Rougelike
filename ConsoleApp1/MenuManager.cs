@@ -1,6 +1,6 @@
 class MenuManager
 {
-    //Shows the menu
+    //Shows the menu (not much to say about this)
     static public void ShowMenu()
     {
         bool show = true; 
