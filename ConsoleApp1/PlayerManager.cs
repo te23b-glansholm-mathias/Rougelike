@@ -44,6 +44,20 @@ public class Character
     {
         Console.Clear();
         Console.WriteLine("You died");
+        Console.WriteLine("Do you want to play again [Y/N]");
+
+        ConsoleKeyInfo keyInfo = Console.ReadKey();
+        
+        switch (keyInfo.Key)
+        {
+                case ConsoleKey.Y:
+                    
+                    break;
+                case ConsoleKey.N:
+                    
+                    break;
+        }
+        
         Console.ReadLine();
     }
 }

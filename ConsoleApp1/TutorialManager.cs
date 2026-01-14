@@ -39,22 +39,7 @@ class TutorialManager
         ConsoleManager.WriteReadAndClear("battleBase_1", TextHandler.GetText("tutorial_2"));
         ConsoleManager.WriteReadAndClear("battleBase_1", TextHandler.GetText("tutorial_3"));
 
-        TutorialBattle();
-    }
-
-    static void TutorialBattle()
-    {
-        Common Frog = new("Frog");
-
-        GameHandler.SetActive(Frog);
-
-        ConsoleManager.WriteReadAndClear("enemyBattleBase_1", TextHandler.GetText("fightStart"));
-
-        while (true)
-        {
-            Console.Clear();
-            Frog.DoAction();
-            ConsoleManager.WriteReadAndClear("enemyBattleBase_1", TextHandler.GetText("attackReceive"));
-        }
+        Fight.BeginBattle("Frog");
+        // TutorialBattle();
     }
 }

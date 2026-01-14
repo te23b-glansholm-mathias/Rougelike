@@ -12,27 +12,29 @@ public abstract class Enemy
 
     public virtual void DoAction()
     {
-        attacksOwned[Random.Shared.Next(attacksOwned.Count)].Execute();
+        attacksOwned[Random.Shared.Next(attacksOwned.Count)].Execute(ATK);
     }
 }
+
+public delegate void AttackFunc(float båt);
 
 public class Attack
 {
-    private Action action;
+    private AttackFunc fredBoat;
     public string Name { get; }
 
-    public Attack(string name, Action action)
+    public Attack(string name, AttackFunc action)
     {
         Name = name;
-        this.action = action;
+        this.fredBoat = fredBoat;
     }
 
-    public void Execute()
+    public void Execute(float ATk)
     {
-        action();
+        fredBoat(ATk);
     }
 }
-
+    
 public class Common : Enemy
 {
     public Common(string enemyName)
@@ -49,15 +51,29 @@ public class Common : Enemy
         }
     }
 
-    public void Slash()
+    public AttackFunc Slash = (ATK) =>
     {
         GameHandler.SetAttack("Slash", ATK);
         GameHandler.Player!.TakeDamage(GameHandler.ActiveDamage);
-    }
+    };
 
-    public void Stomp()
+    public AttackFunc Stomp = (ATK) =>
     {
-        GameHandler.SetAttack("Stomp", ATK + 4);
+        GameHandler.SetAttack("Slash", ATK + 4);
         GameHandler.Player!.TakeDamage(GameHandler.ActiveDamage);
+    };
+}
+
+public class Uncommon : Enemy
+{
+    public Uncommon(string enemyName)
+    {
+        Name = enemyName;
+
+        if (Name == "Skeleton")
+        {
+            HP = 190;
+            ATK = 15;
+        }
     }
 }
