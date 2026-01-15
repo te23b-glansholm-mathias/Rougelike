@@ -106,7 +106,7 @@ public class Skeleton : Enemy
 {
     public bool canRevive;
     bool IsDead = false;
-    protected List<(AttackDelegate attack, int weight)> AttacksOnDead = [];
+    protected List<(AttackDelegate attack, int weight)> AttacksOnDead = []; // List of attacks the skeleton can use when dead
 
     public Skeleton(string enemyName)
     {

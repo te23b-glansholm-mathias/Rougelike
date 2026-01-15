@@ -1,10 +1,156 @@
-[BLOCK 1]
-Greetings traveler, how can I help you today?
-a - Start game
-b - Settings
-c - Achievements
-d - Quit game
-[END 1]
+[BLOCK test]
+The quick brown fox jumps over the lazy dog
+[END]
 
-[BLOCK 2]
-[END 2]
+[BLOCK intro_0]
+ Greetings {1}, how can I help you today?
+ a - Start game
+ b - Settings 
+ c - Achievements
+ d - Quit game
+[END]
+
+[BLOCK tutorial_0]
+hello
+[END]
+
+[BLOCK tutorial_0r2]
+press enter to advance the text
+[END]
+
+[BLOCK tutorial_1]
+please resize the window to your liking
+[END]
+
+[BLOCK tutorial_1r2]
+press ctrl and '+' to scale up
+[END]
+
+[BLOCK tutorial_1r3]
+or ctrl and '-' to scale down
+[END]
+
+[BLOCK tutorial_2]
+This is how the game looks when you are in a battle
+[END]
+
+[BLOCK tutorial_3]
+Let's try fighting something
+[END]
+
+[BLOCK fightStart_1]
+{enemyName1} attacks you
+[END]
+
+[BLOCK fightStart_2]
+{enemyName1} & {enemyName2} attacks you
+[END]
+
+[BLOCK fightStart_3]
+{enemyName1} & {enemyName2} & {enemyName3} attacks you
+[END]
+
+[BLOCK attackReceive_1]
+{enemyName1} uses {activeAttack1} {damageMessage1}
+[END]
+
+[BLOCK attackReceive_2]
+{enemyName1} uses {activeAttack1} {damageMessage1}and {enemyName2} uses {activeAttack2} {damageMessage2}
+[END]
+
+[BLOCK attackReceive_3]
+-    {enemyName1} uses {activeAttack1} {damageMessage1}
+-    {enemyName2} uses {activeAttack2} {damageMessage2}
+-    {enemyName3} uses {activeAttack3} {damageMessage3}
+[END]
+
+[BLOCK attackGive]
+you dealed {1} damage to {2}
+[END]
+
+[BLOCK battleBase_1]
+  「Warrior {playerName}   Level {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+
+
+
+        [ {1} ]                 
+
+
+
+
+                                                            」
+[END]
+
+[BLOCK battleBase_2]
+  「Warrior {playerName}   Level {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+
+
+
+        [ {1} ]
+        [ {2} ]         
+
+
+
+
+                                                            」
+[END]
+
+[BLOCK battleBase_3]
+  「Warrior {playerName}   Level {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+
+
+
+        [ {1} ]
+        [ {2} ]
+        [ {3} ]
+
+
+
+
+                                                            」
+[END]
+
+[BLOCK enemyBattleBase_1]
+  「Warrior {playerName}   Level {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+    Enemy {enemyName1}   Level {enemyLevel1}  HP ({enemyHP1})  FP ({enemyFP1} / {enemyMaxFP1})
+
+
+
+        [ {1} ]
+
+
+
+
+                                                            」
+[END]
+
+[BLOCK enemyBattleBase_2]
+  「Warrior {playerName}   Level {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+    Enemy {enemyName1}   Level {enemyLevel1}  HP ({enemyHP1})  FP ({enemyFP1} / {enemyMaxFP1})
+    Enemy {enemyName2}   Level {enemyLevel2}  HP ({enemyHP2})  FP ({enemyFP2} / {enemyMaxFP2})
+
+
+
+        [ {1} ]
+
+
+
+
+                                                            」
+[END]
+
+[BLOCK enemyBattleBase_3]
+  「Warrior {playerName}   Level {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+    Enemy {enemyName1}   Level {enemyLevel1}  HP ({enemyHP1})  FP ({enemyFP1} / {enemyMaxFP1})
+    Enemy {enemyName2}   Level {enemyLevel2}  HP ({enemyHP2})  FP ({enemyFP2} / {enemyMaxFP2})
+    Enemy {enemyName3}   Level {enemyLevel3}  HP ({enemyHP3})  FP ({enemyFP3} / {enemyMaxFP3})
+
+
+
+{1}
+
+
+
+
+                                                            」
+[END]

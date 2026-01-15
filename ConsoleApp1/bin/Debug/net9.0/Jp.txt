@@ -31,7 +31,7 @@
 [END]
 
 [BLOCK tutorial_2]
-戦闘中のゲーム画面はこうなります
+戦闘中のゲームの表示例です
 [END]
 
 [BLOCK tutorial_3]
@@ -46,13 +46,29 @@
 {enemyName1} と {enemyName2} が攻撃します
 [END]
 
+[BLOCK fightStart_3]
+{enemyName1} & {enemyName2} & {enemyName3} があなたを攻撃します
+[END]
+
 [BLOCK attackReceive_1]
-{enemyName1} が {activeAttack1} を発動 {damageMessage1}
+{enemyName1} が {activeAttack1} を使用しました {damageMessage1}
 [END]
 
 [BLOCK attackReceive_2]
-{enemyName1} が {activeAttack1} を発動 {damageMessage1} と {enemyName2} が {activeAttack2} を発動 {damageMessage2}
+{enemyName1} が {activeAttack1} {damageMessage1} を使用
+{enemyName2} が {activeAttack2} {damageMessage2} を使用
 [END]
+
+[BLOCK attackReceive_3]
+-    {enemyName1} が {activeAttack1} {damageMessage1} を使用
+-    {enemyName2} が {activeAttack2} {damageMessage2} を使用
+-    {enemyName3} が {activeAttack3} {damageMessage3} を使用
+[END]
+
+[BLOCK attackGive]
+{2} に {1} のダメージを与えた
+[END]
+
 
 [BLOCK battleBase_1]
   「戦士 {playerName}   レベル {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
@@ -108,7 +124,9 @@
 
 
                                                             」
+                                」
 [END]
+
 
 [BLOCK enemyBattleBase_2]
   「戦士 {playerName}   レベル {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
@@ -125,4 +143,18 @@
                                                             」
 [END]
 
-DeepL.com（無料版）で翻訳しました。
+[BLOCK enemyBattleBase_3]
+  「戦士 {playerName}   レベル {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+    敵 {enemyName1}   レベル {enemyLevel1}  HP ({enemyHP1})  FP ({enemyFP1} / {enemyMaxFP1})
+    敵 {enemyName2}   レベル {enemyLevel2}  HP ({enemyHP2})  FP ({enemyFP2} / {enemyMaxFP2})
+    敵 {enemyName3}   レベル {enemyLevel3}  HP ({enemyHP3})  FP ({enemyFP3} / {enemyMaxFP3})
+
+
+
+{1}
+
+
+
+
+                                                            」
+[END]

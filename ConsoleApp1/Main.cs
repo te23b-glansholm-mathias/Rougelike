@@ -69,6 +69,7 @@ static class Core
         Console.Clear();
         Console.WriteLine("What is your name?");
         GameHandler.SetName(Console.ReadLine()!);
+        if (GameHandler.PlayerName == "") GameHandler.SetName("ShouldHaveChoosenAName");
         Console.Clear();
         GameHandler.SetPlayer(new("Warrior")); // creates a new character with the warrior class
         MenuManager.ShowMenu();
