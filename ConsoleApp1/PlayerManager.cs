@@ -43,6 +43,11 @@ public class Character
         HP -= amount;
     }
 
+    public void Attack(Enemy enemy, float damage)
+    {
+        enemy.TakeDamage(enemy, damage);
+    }
+
     public static void GameOver()
     {
         Console.Clear();
@@ -54,7 +59,9 @@ public class Character
         switch (keyInfo.Key)
         {
             case ConsoleKey.Y:
-                throw new NotImplementedException();
+                ConsoleManager.NewWindow("");
+                Environment.Exit(0);
+                break;
             case ConsoleKey.N:
                 Environment.Exit(0);
                 break;

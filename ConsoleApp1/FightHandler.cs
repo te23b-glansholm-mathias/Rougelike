@@ -1,34 +1,46 @@
 class Fight
 {
     // starts a battle with 
-    public static void BeginBattle(params string[] enemyName)
+    public static void BeginBattle(params (string enemyName, string Type)[] enemies)
     {
-        float totalHP = 0;
-        float ActiveEnemies = 0;
+        GameHandler.ResetForFight();
 
-        for (int i = 0; i < enemyName.Length; i++) // creates every enemy
+        float totalHP = 0;
+
+        for (int i = 0; i < enemies.Length; i++) // creates every enemy
         {
-            Common enemy = new(enemyName[i]);
+            Enemy enemy = enemies[i].Type == "Skeleton" ? new Skeleton(enemies[i].enemyName) : new Common(enemies[i].enemyName);
             totalHP += enemy.HP; // adds the new enemy hp to the total
             GameHandler.SetActive(enemy);
         }
 
-        ActiveEnemies = GameHandler.ActiveEnemies!.Count;
-
         // textblock changes depending on activeEnemies
-        ConsoleManager.WriteReadAndClear("enemyBattleBase_" + ActiveEnemies, TextHandler.GetText("fightStart_" + ActiveEnemies));
+        ConsoleManager.WriteReadAndClear("enemyBattleBase_" + GameHandler.ActiveEnemies!.Count, TextHandler.GetText("fightStart_" + GameHandler.ActiveEnemies.Count));
 
-        while (totalHP > 0) // while any of the enemies are still living
+        while (GameHandler.ActiveEnemies.Count > 0) // while any of the enemies are still living
         {
             Console.Clear();
 
-            for (int i = 0; i < GameHandler.ActiveEnemies!.Count; i++) // all enemies take a turn
+            foreach (Enemy enemy in GameHandler.ActiveEnemies)
             {
-                GameHandler.ActiveEnemies[i].TakeTurn(GameHandler.ActiveEnemies[i]);
+                enemy.TakeTurn(enemy);
             }
 
-            ConsoleManager.WriteReadAndClear("enemyBattleBase_" + ActiveEnemies, TextHandler.GetText("attackReceive_" + ActiveEnemies));
+            ConsoleManager.WriteReadAndClear("enemyBattleBase_" + GameHandler.ActiveEnemies.Count, TextHandler.GetText("attackReceive_" + GameHandler.ActiveEnemies.Count));
             GameHandler.ResetAttack(); // cleans up for next turn
+
+            if (GameHandler.ActiveEnemies.Count > 0)
+            {
+                // for the player to fight backy
+                int whichEnemy = Random.Shared.Next(GameHandler.ActiveEnemies.Count); // chooses random enemy
+                float damage = Random.Shared.Next(1, 100);
+
+                Enemy targetEnemy = GameHandler.ActiveEnemies[whichEnemy];
+
+                GameHandler.Player!.Attack(targetEnemy, damage);
+
+                if (GameHandler.ActiveEnemies.Count > 0) ConsoleManager.WriteReadAndClear("enemyBattleBase_" + GameHandler.ActiveEnemies.Count, TextHandler.GetText("attackGive", damage.ToString(), targetEnemy.Name!));
+            }
         }
 
         BattleWon();
@@ -36,6 +48,9 @@ class Fight
 
     static void BattleWon()
     {
-        throw new NotImplementedException();
+        Console.WriteLine($"You won the game. Nice work!!!!11!!!1111! båt");
+        Console.ReadLine();
+        ConsoleManager.NewWindow("");
+        Environment.Exit(0);
     }
 }

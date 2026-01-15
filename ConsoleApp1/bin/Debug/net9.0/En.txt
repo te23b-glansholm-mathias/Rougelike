@@ -46,12 +46,26 @@ Let's try fighting something
 {enemyName1} & {enemyName2} attacks you
 [END]
 
+[BLOCK fightStart_3]
+{enemyName1} & {enemyName2} & {enemyName3} attacks you
+[END]
+
 [BLOCK attackReceive_1]
 {enemyName1} uses {activeAttack1} {damageMessage1}
 [END]
 
 [BLOCK attackReceive_2]
 {enemyName1} uses {activeAttack1} {damageMessage1}and {enemyName2} uses {activeAttack2} {damageMessage2}
+[END]
+
+[BLOCK attackReceive_3]
+-    {enemyName1} uses {activeAttack1} {damageMessage1}
+-    {enemyName2} uses {activeAttack2} {damageMessage2}
+-    {enemyName3} uses {activeAttack3} {damageMessage3}
+[END]
+
+[BLOCK attackGive]
+you dealed {1} damage to {2}
 [END]
 
 [BLOCK battleBase_1]
@@ -118,6 +132,22 @@ Let's try fighting something
 
 
         [ {1} ]
+
+
+
+
+                                                            」
+[END]
+
+[BLOCK enemyBattleBase_3]
+  「Warrior {playerName}   Level {playerLevel}  HP ({playerHP} / {playerMaxHP})  FP ({playerFP} / {playerMaxFP})
+    Enemy {enemyName1}   Level {enemyLevel1}  HP ({enemyHP1})  FP ({enemyFP1} / {enemyMaxFP1})
+    Enemy {enemyName2}   Level {enemyLevel2}  HP ({enemyHP2})  FP ({enemyFP2} / {enemyMaxFP2})
+    Enemy {enemyName3}   Level {enemyLevel3}  HP ({enemyHP3})  FP ({enemyFP3} / {enemyMaxFP3})
+
+
+
+{1}
 
 
 

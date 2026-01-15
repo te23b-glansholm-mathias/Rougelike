@@ -27,6 +27,11 @@ static class GameHandler
         ActiveAttack!.Clear();
         ActiveDamage!.Clear();
     }
+
+    public static void ResetForFight()
+    {
+        ActiveEnemies!.Clear();
+    }
 }
 
 static class Core

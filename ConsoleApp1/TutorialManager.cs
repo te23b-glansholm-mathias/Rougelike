@@ -17,6 +17,7 @@ class TutorialManager
                     break;
 
                 case ConsoleKey.N:
+                    StartTutorial();
                     break;
 
                 case ConsoleKey.Enter:
@@ -40,6 +41,9 @@ class TutorialManager
         ConsoleManager.WriteReadAndClear("battleBase_1", TextHandler.GetText("tutorial_2"));
         ConsoleManager.WriteReadAndClear("battleBase_1", TextHandler.GetText("tutorial_3"));
 
-        Fight.BeginBattle("Frog");
+        Fight.BeginBattle(
+            ("Frog", "Common"),
+            ("Skeleton", "Skeleton")
+        );
     }
 }
